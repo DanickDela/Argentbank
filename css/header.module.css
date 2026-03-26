@@ -1,0 +1,38 @@
+.header {
+  color: #fff;
+}
+.header .main__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.header .main__nav_logo {
+  display: flex;
+  align-items: center;
+}
+.header .main__nav_logo_image {
+  width: 200px;
+}
+.header .main__nav_item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+.header .main__nav_item .iconefa {
+  font-size: 25px;
+}
+.header .main__nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+.header .main__nav a.router-link-exact-active {
+  color: #42b983;
+}
+.header .main__nav a:hover {
+  text-decoration: underline;
+}
