@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "react-router-dom": "^7.13.2"
+    "immer": "^11.1.4"
   }
 }
