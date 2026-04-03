@@ -1,3 +1,28 @@
+/**
+ * Header component.
+ *
+ * This component represents the main navigation bar of the application.
+ * It displays:
+ * - The application logo
+ * - Navigation links (Home, Profile, Login)
+ * - User information when authenticated
+ * - A sign-out button
+ *
+ * Features:
+ * - Conditional rendering based on authentication state
+ * - Displays the user's first name when logged in
+ * - Handles user logout by clearing authentication and user state
+ * - Redirects to the home page after logout
+ *
+ * Redux:
+ * - Reads authentication token from auth slice
+ * - Reads user first name from user slice
+ * - Dispatches actions to clear token and user profile
+ *
+ * @component
+ * @returns {JSX.Element} The header navigation bar
+ */
+
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/argentBankLogo.png";
 import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
@@ -13,6 +38,12 @@ function Header() {
   const token = useSelector((state) => state.auth.token);
   const { firstName } = useSelector((state) => state.user);
 
+  /**
+   * Handles user sign-out.
+   *
+   * Clears authentication token and user profile from Redux store,
+   * then redirects the user to the home page.
+   */
   function handleSignOut() {
     dispatch(clearToken());
     dispatch(clearUserProfile());

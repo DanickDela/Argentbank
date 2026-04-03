@@ -1,3 +1,35 @@
+/**
+ * SigninForm component.
+ *
+ * This component handles user authentication.
+ * It provides a login form with validation and manages:
+ * - Email and password input fields
+ * - Form validation (onBlur and onSubmit)
+ * - Error handling and display
+ * - "Remember me" functionality (localStorage / sessionStorage)
+ * - Automatic redirection after successful login
+ *
+ * Features:
+ * - Validates email format using a custom hook
+ * - Validates password length
+ * - Displays error messages to the user
+ * - Redirects to the profile page when the user is authenticated
+ *
+ * State:
+ * - username: user's email input
+ * - password: user's password input
+ * - remember: boolean for persistent session
+ * - error: error message displayed to the user
+ *
+ * Hooks:
+ * - useLoginUser: custom hook to perform login API call
+ * - useSelector: retrieves authentication token from Redux store
+ * - useNavigate: handles navigation after login
+ *
+ * @component
+ * @returns {JSX.Element} The sign-in form UI
+ */
+
 import { useEffect, useState } from "react";
 import styles from "../../styles/form.module.scss";
 import { FaUserCircle } from "react-icons/fa";
@@ -11,9 +43,11 @@ function SigninForm() {
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
 
+  /**
+   * Redirects the user to the profile page when authenticated.
+   */
   useEffect(() => {
     if (token) {
-      // rediriger vers le profil
       navigate("/profile");
     }
   }, [token, navigate]);
@@ -23,32 +57,45 @@ function SigninForm() {
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState("");
 
+  /**
+   * Validates the username field on blur.
+   */
   function handleBlurUsername() {
     if (!username) {
-      setError("L'email est obligatoire");
+      setError("Email is required");
     } else if (!isValidEmail(username)) {
-      setError("Email invalide");
+      setError("Invalid email");
     } else {
       setError("");
     }
   }
 
+  /**
+   * Validates the password field on blur.
+   */
   function handleBlurPassword() {
     if (!password) {
-      setError("Le password est obligatoire");
-    } else if (password.length < 11) {
-      console.log("password", password.length);
-      setError("Le password doit avoir au moins 11 caractères");
+      setError("Password is required");
+    } else if (password.length < 12) {
+      setError("Password must be at least 12 characters");
     } else {
       setError("");
     }
   }
 
+  /**
+   * Handles form submission.
+   *
+   * Performs validation and triggers the login process.
+   * Displays error messages if validation fails or login fails.
+   *
+   *  @param {Event} e
+   */
   async function handleSubmit(e) {
-    e.preventDefault(); // ❗ empêche le reload
+    e.preventDefault();
 
     if (!username) {
-      setError("L'email est obligatoire");
+      setError("Email is required");
       return;
     }
 
@@ -58,18 +105,18 @@ function SigninForm() {
     }
 
     if (!password) {
-      setError("Le mot de passe est obligatoire");
+      setError("Password is required");
       return;
     }
 
-    if (password.length < 11) {
-      setError("Le mot de passe doit avoir au moins 12 caractères");
+    if (password.length < 12) {
+      setError("Password must be at least 12 characters");
       return;
     }
 
     setError("");
+
     try {
-      setError("");
       await loginUser(username, password, remember);
     } catch (error) {
       setError(error.message);
@@ -114,7 +161,6 @@ function SigninForm() {
           <label htmlFor="remember-me">Remember me</label>
         </div>
 
-        {/* ❗ Affichage erreur */}
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <button type="submit" className={styles.signin_content_button}>

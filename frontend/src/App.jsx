@@ -1,3 +1,17 @@
+/**
+ * Main application component.
+ *
+ * This component handles:
+ * - Global layout (Header, Footer)
+ * - Application routing using React Router
+ * - User authentication state via Redux
+ * - Fetching the user profile when a valid token is present
+ * - Displaying loading and error states related to the user profile
+ *
+ * @component
+ * @returns {JSX.Element} The root application component
+ */
+
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -15,6 +29,14 @@ function App() {
   const token = useSelector((state) => state.auth.token);
   const { error, status } = useSelector((state) => state.user);
 
+  /**
+   * Effect to manage user authentication state.
+   *
+   * - Clears user profile if no token is present
+   * - Fetches user profile if token exists and status is idle
+   *
+   * @effect
+   */
   useEffect(() => {
     if (!token) {
       dispatch(clearUserProfile());
@@ -29,12 +51,15 @@ function App() {
   return (
     <>
       <Header />
+
       {status === "loading" && (
-        <div className={styles.loading}>Chargement du profil...</div>
+        <div className={styles.loading}>Loading profile...</div>
       )}
+
       {status === "failed" && (
-        <div className={styles.error}>Erreur : {error}</div>
+        <div className={styles.error}>Error : {error}</div>
       )}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -48,6 +73,7 @@ function App() {
           }
         />
       </Routes>
+
       <Footer />
     </>
   );

@@ -1,3 +1,18 @@
+/**
+ * Home page component.
+ *
+ * This component represents the landing page of the application.
+ * It displays a promotional hero section and a list of key features
+ * highlighting the bank's services.
+ *
+ * Sections included:
+ * - Hero section with marketing messages
+ * - Features section presenting main benefits
+ *
+ * @component
+ * @returns {JSX.Element} The home page layout
+ */
+
 import iconChat from "../../assets/icon-chat.png";
 import iconMoney from "../../assets/icon-money.png";
 import iconSecurity from "../../assets/icon-security.png";

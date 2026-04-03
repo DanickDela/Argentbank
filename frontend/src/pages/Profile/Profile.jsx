@@ -1,3 +1,24 @@
+/**
+ * Profile page component.
+ *
+ * This component displays the authenticated user's profile information,
+ * including their first and last name, and a list of bank accounts.
+ *
+ * Features:
+ * - Displays a welcome message with the user's name
+ * - Allows editing the user's name via the EditNameForm component
+ * - Shows account summaries with balances
+ *
+ * State:
+ * - isEditing: controls whether the edit name form is visible
+ *
+ * Redux:
+ * - Retrieves user information (firstName, lastName) from the global store
+ *
+ * @component
+ * @returns {JSX.Element} The profile page layout
+ */
+
 import { useState } from "react";
 import "../../styles/main.scss";
 import styles from "../../styles/profile.module.scss";

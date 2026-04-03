@@ -1,3 +1,13 @@
+/**
+ * Footer component.
+ *
+ * Displays the application's footer section, including
+ * copyright information.
+ *
+ * @component
+ * @returns {JSX.Element} The footer element
+ */
+
 import styles from "../../styles/footer.module.scss";
 
 function Footer() {

@@ -3,7 +3,34 @@ import styles from "../../styles/editnameform.module.scss";
 import { useSelector } from "react-redux";
 import { isValidName } from "../../hooks/useRegex";
 import { useUpdateUser } from "../../hooks/useUpdateUser";
-
+/**
+ * EditNameForm component.
+ *
+ * Allows the user to update their first and last name.
+ * This component handles form display, validation, submission,
+ * and error handling.
+ *
+ * Features:
+ * - Toggles between display mode and edit mode
+ * - Validates user input (non-empty, valid characters, changes detected)
+ * - Sends updated user data via a custom hook
+ * - Displays validation and API error messages
+ * - Resets form state after successful submission or cancellation
+ *
+ * Props:
+ * @param {Object} props - Component props
+ * @param {boolean} props.isEditing - Indicates whether the form is in edit mode
+ * @param {Function} props.setIsEditing - Function to toggle edit mode
+ *
+ * Redux:
+ * - Retrieves current user data (firstName, lastName) from the store
+ *
+ * Hooks:
+ * - useUpdateUser: custom hook to update user profile via API
+ *
+ * @component
+ * @returns {JSX.Element} The edit name form or edit button
+ */
 function EditNameForm({ isEditing, setIsEditing }) {
   const { firstName, lastName } = useSelector((state) => state.user);
   const updateUser = useUpdateUser();
