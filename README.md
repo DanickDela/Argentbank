@@ -113,18 +113,18 @@ http://localhost:3001/api/v1
 
 ## 🎨 Styling
 
-SCSS modular structure
-BEM methodology
-Responsive design
+- SCSS modular structure
+- BEM methodology
+- Responsive design
 
 ## 🧠 Key Concepts
 
-React Hooks (useState, useEffect)
-Custom Hooks (useLoginUser, useUpdateUser)
-Redux global state management
-API error handling
-Protected routes
-Form validation
+- React Hooks (useState, useEffect)
+- Custom Hooks (useLoginUser, useUpdateUser)
+- Redux global state management
+- API error handling
+- Protected routes
+- Form validation
 
 ## 👨‍💻 Author
 
