@@ -1,38 +1,147 @@
+/**
+ * Header component styles.
+ *
+ * Defines the layout and appearance of the application's header,
+ * including navigation, logo, and authentication elements.
+ */
 .header {
   color: #fff;
+  /**
+   * Navigation container.
+   *
+   * Uses flexbox to align logo and navigation items horizontally.
+   */
 }
-.header .main__nav {
+.header .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
+  /**
+   * Logo container.
+   */
 }
-.header .main__nav_logo {
+.header .nav__logo {
   display: flex;
   align-items: center;
+  /**
+   * Logo image styling
+   */
 }
-.header .main__nav_logo_image {
+.header .nav__logo_image {
   width: 200px;
 }
-.header .main__nav_item {
+@media (max-width: 768px) {
+  .header .nav__logo_image {
+    width: 100px;
+  }
+}
+.header .nav {
+  /**
+   * Authentication section (profile + logout).
+   */
+}
+.header .nav__auth {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .header .nav__auth {
+    gap: 10px;
+  }
+}
+.header .nav {
+  /**
+   * Navigation item (links).
+   */
+}
+.header .nav__item {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   text-decoration: none;
-  margin-right: 0.5rem;
+  /**
+   * User icon styling
+   */
 }
-.header .main__nav_item .iconefa {
-  font-size: 25px;
+.header .nav__item_iconeuser {
+  font-size: 40px;
 }
-.header .main__nav a {
+@media (max-width: 768px) {
+  .header .nav__item_iconeuser {
+    font-size: 20px;
+  }
+}
+.header .nav {
+  /**
+   * Sign-out button styling.
+   */
+}
+.header .nav__item_sign {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #2c3e50;
+  /**
+   * Logout icon styling
+   */
+}
+.header .nav__item_sign_iconeout {
+  font-size: 20px;
+}
+@media (max-width: 768px) {
+  .header .nav__item_sign_iconeout {
+    font-size: 15px;
+  }
+}
+.header .nav__item_sign {
+  /**
+   * Logout text styling
+   */
+}
+.header .nav__item_sign_text {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .header .nav__item_sign_text {
+    font-size: 0.9em;
+  }
+}
+.header .nav__item_sign {
+  /**
+   * Hover effect
+   */
+}
+.header .nav__item_sign:hover {
+  text-decoration: underline;
+}
+.header .nav {
+  /**
+   * Global link styles inside navigation.
+   */
+}
+.header .nav a {
   font-weight: bold;
   color: #2c3e50;
+  /**
+   * Active link styling
+   */
 }
-.header .main__nav a.router-link-exact-active {
+.header .nav a.router-link-exact-active {
   color: #42b983;
 }
-.header .main__nav a:hover {
+.header .nav a {
+  /**
+   * Hover effect
+   */
+}
+.header .nav a:hover {
   text-decoration: underline;
 }
