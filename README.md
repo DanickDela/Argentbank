@@ -29,24 +29,24 @@ It allows users to authenticate, view their profile, and update their personal i
 - SCSS (BEM methodology)
 - JWT Authentication
 
-## Project Structure
+## 📂 Project Structure
 
+```text
 ArgentBank/
 ├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── hooks/
-│ │ ├── store/
-│ │ ├── service/
-│ │ ├── styles/
-│ │ └── main.jsx
-│ └── package.json
-│
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── store/
+│   │   ├── service/
+│   │   ├── styles/
+│   │   └── main.jsx
+│   └── package.json
 ├── backend/
-│ └── API server
-│
+│   └── API server
 └── README.md
+```
 
 ## ⚙️ Installation
 
