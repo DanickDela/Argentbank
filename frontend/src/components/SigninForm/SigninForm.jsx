@@ -76,8 +76,8 @@ function SigninForm() {
   function handleBlurPassword() {
     if (!password) {
       setError("Password is required");
-    } else if (password.length < 12) {
-      setError("Password must be at least 12 characters");
+    } else if (password.length < 11) {
+      setError("Password must be at least 11 characters");
     } else {
       setError("");
     }
@@ -109,8 +109,8 @@ function SigninForm() {
       return;
     }
 
-    if (password.length < 12) {
-      setError("Password must be at least 12 characters");
+    if (password.length < 11) {
+      setError("Password must be at least 11 characters");
       return;
     }
 
