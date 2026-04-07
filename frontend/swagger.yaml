@@ -127,7 +127,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Accounts and Transactions Module
+        - Acounts and Transactions Module
       summary: Get user accounts
       description: API for fetching all accounts of the authenticated user
       parameters:
@@ -155,8 +155,8 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Accounts and Transactions Module
-      summary: Get all transactions of an account
+        - Acounts and Transactions Module
+      summary: Get all transactions of an account for a specific month or the current month
       description: API for retrieving the list of transactions for an account
       parameters:
         - in: header
@@ -169,6 +169,12 @@ paths:
           description: ID of the account
           required: true
           type: string
+        - in: query
+          name: month
+          description: filter transactions for a specific montth. If not provided, returns trnsactions of the current month.
+          required: false
+          type: string
+          x-example: "2026-04"
       produces:
         - application/json
       responses:
@@ -187,7 +193,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Accounts and Transactions Module
+        - Acounts and Transactions Module
       summary: Add a transaction to an account
       description: API for adding a new transaction to a specific account
       parameters:
@@ -228,7 +234,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Accounts and Transactions Module
+        - Acounts and Transactions Module
       summary: Update a transaction of an account
       description: API for updating a specific transaction of a specific account
       parameters:
@@ -273,7 +279,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Accounts and Transactions Module
+        - Acounts and Transactions Module
       summary: Delete a transaction of an account
       description: API for deleting a specific transaction of a specific account
       parameters:
