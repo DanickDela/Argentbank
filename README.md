@@ -1,16 +1,131 @@
-# React + Vite
+# 🏦 ArgentBank – Frontend Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Homepage](./frontend/public/screenshot.png)
 
-Currently, two official plugins are available:
+ArgentBank is a modern banking web application built with React and Redux Toolkit.
+It allows users to authenticate, view their profile, and update their personal information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔐 User authentication (login/logout)
+- 👤 Profile display (first name / last name)
+- ✏️ Profile update (edit user information)
+- 💾 Token persistence (localStorage / sessionStorage)
+- ⚡ Global state management with Redux Toolkit
+- 🔄 API integration with Axios
+- 📱 Responsive design
+- ♿ Accessibility improvements
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- React (Vite)
+- Redux Toolkit
+- React Router
+- Axios
+- SCSS (BEM methodology)
+- JWT Authentication
+
+## 📂 Project Structure
+
+```text
+ArgentBank/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── store/
+│   │   ├── service/
+│   │   ├── styles/
+│   │   └── main.jsx
+│   └── package.json
+├── backend/
+│   └── API server
+└── README.md
+```
+
+## ⚙️ Installation
+
+### Clone the repository
+
+git clone https://github.com/DanickDela/ArgentBank.git
+cd ArgentBank
+
+### Install dependencies
+
+Frontend:
+cd frontend
+npm install
+
+Backend:
+cd ../backend
+npm install
+
+---
+
+## ▶️ Run the project
+
+Backend:
+npm run dev:server
+
+Frontend:
+cd ../frontend
+npm run dev
+
+---
+
+## 🔐 Authentication Flow
+
+1. Login
+2. Token stored (localStorage/sessionStorage)
+3. Redux updated
+4. Profile fetched
+5. Protected routes secured
+
+---
+
+## 🔄 State Management
+
+authSlice
+Stores JWT token
+userSlice
+Stores user profile
+Handles async fetch (createAsyncThunk)
+Manages status (idle, loading, succeeded, failed)
+
+## 📡 API Endpoints
+
+Base URL:
+http://localhost:3001/api/v1
+
+| Endpoint        | Method | Description    |
+| --------------- | ------ | -------------- |
+| `/user/login`   | POST   | Login user     |
+| `/user/signup`  | POST   | Register user  |
+| `/user/profile` | POST   | Get profile    |
+| `/user/profile` | PUT    | Update profile |
+
+---
+
+## 🎨 Styling
+
+- SCSS modular structure
+- BEM methodology
+- Responsive design
+
+## 🧠 Key Concepts
+
+- React Hooks (useState, useEffect)
+- Custom Hooks (useLoginUser, useUpdateUser)
+- Redux global state management
+- API error handling
+- Protected routes
+- Form validation
+
+## 👨‍💻 Author
+
+Danick Delaroche
